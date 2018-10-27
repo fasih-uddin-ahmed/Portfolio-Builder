@@ -10,14 +10,7 @@
                 @include('dashboard.partials._menu')
             </aside>
             <div class="col-sm-9">
-                <div class="card">
-                    <div class="card-header font-weight-bold">
-                        User Profile
-                    </div>
-                    <div class="card-body">
-                        hello user
-                    </div>
-                </div>
+                @yield('content')
             </div>
         </div>
     </main>
