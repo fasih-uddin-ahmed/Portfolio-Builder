@@ -16,13 +16,12 @@ class ProfileController extends Controller
     public function update()
     {
         $rules = Profile::rules();
-        $attributes = array_keys($rules);
 
-        $this->validate(request($attributes), $rules);
+        $validatedData = $this->validate(request(), $rules);
 
         Profile::updateOrCreate([
             'user_id' => auth()->user()->id
-        ], request($attributes));
+        ], $validatedData);
 
         return back()
             ->withInput()
