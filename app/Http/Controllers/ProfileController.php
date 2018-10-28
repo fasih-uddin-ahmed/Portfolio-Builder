@@ -17,20 +17,15 @@ class ProfileController extends Controller
     {
         $rules = Profile::rules();
         $attributes = array_keys($rules);
-        $validator = validator(request($attributes), $rules);
 
-        if ($validator->passes()) {
-            Profile::updateOrCreate([
-                'user_id' => auth()->user()->id
-            ], request($attributes));
+        $this->validate(request($attributes), $rules);
 
-            return back()
-                ->withInput()
-                ->withSuccess('Profile has been updated successfully!');
-        }
+        Profile::updateOrCreate([
+            'user_id' => auth()->user()->id
+        ], request($attributes));
 
         return back()
             ->withInput()
-            ->withErrors($validator);
+            ->withSuccess('Profile has been updated successfully!');
     }
 }
