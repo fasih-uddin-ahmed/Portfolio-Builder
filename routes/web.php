@@ -20,5 +20,10 @@ Route::prefix('dashboard')->group(function() {
     //post profile
     Route::post('profile', 'ProfileController@update')
         ->name('profile_update');
+
+    Route::prefix('user')->group(function() {
+        Route::get('{userId}/project', 'ProjectController@index')->name('project_list');
+        Route::get('{userId}/project/{project_id}/delete', 'ProjectController@delete')->name('project_delete');
+    });
 });
 

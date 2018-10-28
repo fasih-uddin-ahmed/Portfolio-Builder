@@ -19,7 +19,7 @@ class DatabaseSeeder extends Seeder
             ->create()
             ->each(function($user) {
                 $user->profile()->save(factory(Profile::class)->make());
-                $user->projects()->saveMany(factory(Project::class, 5)->make());
+                $user->projects()->saveMany(factory(Project::class, 30)->make());
                 $user->messages()->saveMany(factory(Message::class, 3)->make());
             });
     }

@@ -2,7 +2,7 @@
 
 @section('content')
     @include('dashboard.partials._message')
-    <div class="card">
+    <div class="card pb-3">
         <div class="card-header font-weight-bold">
             User Profile
         </div>
