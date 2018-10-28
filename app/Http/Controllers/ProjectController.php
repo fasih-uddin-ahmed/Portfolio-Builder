@@ -15,6 +15,11 @@ class ProjectController extends Controller
         return view('dashboard.project.index', compact('user', 'projects'));
     }
 
+    public function create()
+    {
+        return view('dashboard.project.create');
+
+    }
 
     public function delete($userId, $projectId)
     {
