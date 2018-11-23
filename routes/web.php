@@ -10,7 +10,6 @@
 | contains the "web" middleware group. Now create something great!
 |
  */
-Auth::loginUsingId(3);
 
 Route::redirect('dashboard', 'dashboard/profile');
 
@@ -33,3 +32,7 @@ Route::prefix('dashboard')->group(function() {
     });
 });
 
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
