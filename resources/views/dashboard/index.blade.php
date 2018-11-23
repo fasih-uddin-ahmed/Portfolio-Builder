@@ -5,7 +5,7 @@
         @include('dashboard.partials._header')
     </header>
     <main class="container">
-        <div class="row mt-5">
+        <div class="row py-5">
             <aside class="col-sm-3">
                 @include('dashboard.partials._menu')
             </aside>

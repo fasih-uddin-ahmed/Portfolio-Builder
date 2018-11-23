@@ -21,9 +21,15 @@ Route::prefix('dashboard')->group(function() {
     Route::post('profile', 'ProfileController@update')
         ->name('profile_update');
 
-    Route::prefix('user')->group(function() {
-        Route::get('{userId}/project', 'ProjectController@index')->name('project_list');
-        Route::get('{userId}/project/{project_id}/delete', 'ProjectController@delete')->name('project_delete');
+    Route::prefix('user/{userId}')->group(function() {
+        Route::get('project', 'ProjectController@index')->name('project_list');
+        Route::get('project/create', 'ProjectController@create')->name('project_create');
+        Route::get('project/{id}/delete', 'ProjectController@delete')->name('project_delete');
+        Route::get('project/{id}/edit', 'ProjectController@edit')->name('project_edit');
+
+        //post routes
+        Route::post('project', 'ProjectController@store')->name('project_store');
+        Route::post('project/{id}/update', 'ProjectController@update')->name('project_update');
     });
 });
 
