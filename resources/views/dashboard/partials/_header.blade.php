@@ -12,6 +12,12 @@
                 <li class="nav-item">
                     <a class="nav-link font-weight-bold" href="{{url('/')}}"><i class="fa fa-graduation-cap fa-fw"></i> Portfolio</a>
                 </li>
+                <li class="nav-item">
+                    <form method="POST" action="{{url('logout')}}" class="form-inline">
+                        @csrf
+                        <button class="btn btn-link nav-link font-weight-bold"><i class="fa fa-sign-out fa-fw"></i> Logout</button>
+                    </form>
+                </li>
             </ul>
         </div>
     </div>

@@ -2,13 +2,13 @@
 
 @section('content')
     @include('dashboard.partials._message')
-    <div class="card pb-3">
+    <div class="card mb-5">
         <div class="card-header font-weight-bold">
             User Profile
         </div>
         <div class="card-body">
             @include('dashboard.partials._errors')
-            <form method="POST" action="{{route('profile_update')}}">
+            <form method="POST" action="{{route('profile_update', auth()->user()->id)}}">
                 @csrf
                 <div class="row">
                     <div class="form-group col-6">
